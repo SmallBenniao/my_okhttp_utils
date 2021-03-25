@@ -1,0 +1,3 @@
+include ':my_okhttp_utils'
+include ':app'
+rootProject.name = "MyApplication"
