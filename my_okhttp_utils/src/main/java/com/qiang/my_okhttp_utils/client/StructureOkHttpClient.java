@@ -78,6 +78,24 @@ public class StructureOkHttpClient {
         addCall(name, call);
     }
 
+    public static void request(String name, Context mContext, boolean isDialog, Request request, StructureCallback callback) {
+
+        //需要 request
+        Call call = okHttpClient.newCall(request);
+        callback.setName(name);
+
+        //启动 加载动画
+        if (isDialog) {
+            StructureDialog.shouLoading(mContext);
+        }
+
+        //需要CallBack
+        call.enqueue(callback);
+
+        //添加 call
+        addCall(name, call);
+    }
+
     //添加
     public static void addCall(String name, Call call) {
 

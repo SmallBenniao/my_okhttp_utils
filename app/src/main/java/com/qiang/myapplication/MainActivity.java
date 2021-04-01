@@ -20,25 +20,40 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-        String bodyJson = new HttpParams("", "").converJson();
+//        String bodyJson = new HttpParams("", "").converJson();
+//
+//        Request request = new StructureRequest().postJson("http://www.baidu.com", bodyJson, null);
+//
+//        StructureOkHttpClient.postJson("name", MainActivity.this, true, request, new StructureCallback<User>(User.class) {
+//
+//
+//            @Override
+//            protected void onResponse(User user) {
+//
+//                Log.e("==", "cheng");
+//            }
+//
+//            @Override
+//            protected void onFailure(String str) {
+//                Log.e("==", "bai");
+//            }
+//        });
 
-        Request request = new StructureRequest().postJson("http://www.baidu.com", bodyJson, null);
 
-        StructureOkHttpClient.postJson("name", MainActivity.this, true, request, new StructureCallback<User>(User.class) {
+        Request request1 = new StructureRequest().postForm("http://www.baidu.com", null);
 
+        StructureOkHttpClient.request("name", MainActivity.this, true, request1,
+                new StructureCallback<User>(User.class) {
+                    @Override
+                    protected void onResponse(User user) {
 
-            @Override
-            protected void onResponse(User user) {
+                    }
 
-                Log.e("==", "cheng");
-            }
+                    @Override
+                    protected void onFailure(String str) {
 
-            @Override
-            protected void onFailure(String str) {
-                Log.e("==", "bai");
-            }
-        });
-
+                    }
+                });
     }
 
 }
